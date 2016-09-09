@@ -8,15 +8,6 @@ class FruitsTest extends TestCase
 {
 	use DatabaseMigrations;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample(){
-        $this->assertTrue(true);
-    }
-
     public function testJSONFront(){
         $this->get('/api')
             ->seeJson([
