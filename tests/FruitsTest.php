@@ -58,7 +58,7 @@ class FruitsTest extends TestCase
 	 * @test
 	 * Test: GET /api/authenticate.
 	 */
-	public function it_authenticate_a_user(){
+	public function testAuthenticate(){
 	    $user = factory(App\User::class)->create(['password' => bcrypt('foo')]);
 
 	    $this->post('/api/authenticate', ['email' => $user->email, 'password' => 'foo'])
@@ -69,12 +69,24 @@ class FruitsTest extends TestCase
 	 * @test
 	 * Test: POST /api/fruits.
 	 */
-	public function it_saves_a_fruit(){
+	public function testSaveFruit(){
 	    $user = factory(App\User::class)->create(['password' => bcrypt('foo')]);
 
 	    $fruit = ['name' => 'peache', 'color' => 'peache', 'weight' => 175, 'delicious' => true];
 
 	    $this->post('/api/fruits', $fruit, $this->headers($user))
 	         ->seeStatusCode(201);
+	}
+
+	/**
+	 * @test
+	 * Test authenticate route is not valid if not authenticate
+	 * Test: POST /api/fruits.
+	 */
+	public function testFailSaveFruit(){
+	    $fruit = App\Fruit::create(['name' => 'peache', 'color' => 'peache', 'weight' => 175, 'delicious' => true])->toArray();
+
+	    $this->post('/api/fruits', $fruit)
+	         ->seeStatusCode(401);
 	}
 }
