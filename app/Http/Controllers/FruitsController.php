@@ -19,4 +19,14 @@ class FruitsController extends Controller
         // return $this->response->array(['data' => $fruits], 200);
         return $this->collection($fruits, new FruitsTransformer);
     }
+
+    public function show($id){
+        $fruit = Fruit::where('id', $id)->first();
+
+        if ($fruit) {
+            return $this->item($fruit, new FruitsTransformer);
+        }
+
+        return $this->response->errorNotFound();
+    }
 }
