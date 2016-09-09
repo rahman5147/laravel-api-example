@@ -39,7 +39,7 @@ class FruitsTest extends TestCase
 	 * @test
 	 * Test: GET /api/fruit/1.
 	 */
-	public function it_fetches_a_single_fruit(){
+	public function testSingleFruit(){
 	    $this->seed('FruitsTableSeeder');
 
 	    $this->get('/api/fruit/1')
