@@ -4,9 +4,9 @@
 
 $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
-	$api->get('/', function() {
-        return ['Fruits' => 'Delicious and healthy!'];
-    });
+	// $api->get('/', function() {
+        // return ['Fruits' => 'Delicious and healthy!'];
+    // });
 
     $api->get('fruits', 'App\Http\Controllers\FruitsController@index');
 
@@ -16,9 +16,9 @@ $api->version('v1', function ($api) {
 	$api->post('logout', 'App\Http\Controllers\AuthenticateController@logout');
 	$api->get('token', 'App\Http\Controllers\AuthenticateController@getToken');
 
-	$api->get('test', function () {
-        return 'It is ok';
-    });
+	// $api->get('test', function () {
+        // return 'It is ok';
+    // });
 });
 
 $api->version('v1', ['middleware' => 'api.auth'], function ($api) {
