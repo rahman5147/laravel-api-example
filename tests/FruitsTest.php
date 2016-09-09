@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Fruit;
 
 class FruitsTest extends TestCase
 {
@@ -84,7 +85,7 @@ class FruitsTest extends TestCase
 	 * Test: POST /api/fruits.
 	 */
 	public function testFailSaveFruit(){
-	    $fruit = App\Fruit::create(['name' => 'peache', 'color' => 'peache', 'weight' => 175, 'delicious' => true])->toArray();
+	    $fruit = Fruit::create(['name' => 'peache', 'color' => 'peache', 'weight' => 175, 'delicious' => true])->toArray();
 
 	    $this->post('/api/fruits', $fruit)
 	         ->seeStatusCode(401);
