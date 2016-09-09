@@ -37,7 +37,9 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapWebRoutes();
 
-        $this->mapApiRoutes();
+        // $this->mapApiRoutes();
+        
+        $this->mapDingoRoutes();
 
         //
     }
@@ -74,6 +76,14 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'api',
         ], function ($router) {
             require base_path('routes/api.php');
+        });
+    }
+    protected function mapDingoRoutes()
+    {
+        Route::group([
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/dingo.php');
         });
     }
 }
