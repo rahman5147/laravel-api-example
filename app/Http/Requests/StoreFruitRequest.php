@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
-use Illuminate\Foundation\Http\FormRequest;
-
+use Dingo\Api\Http\FormRequest;
 class StoreFruitRequest extends FormRequest
 {
     /**
@@ -13,9 +11,8 @@ class StoreFruitRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,7 +21,10 @@ class StoreFruitRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'      => 'required|unique:fruits',
+            'color'     => 'required|alpha',
+            'weight'    => 'required|numeric',
+            'delicious' => 'required|boolean'
         ];
     }
 }
