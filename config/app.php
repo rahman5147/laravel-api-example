@@ -181,6 +181,7 @@ return [
         // My add
         Dingo\Api\Provider\LaravelServiceProvider::class,
         'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+        Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class,
     ],
 
     /*
