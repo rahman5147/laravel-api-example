@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Fruit;
+use Dingo\Api\Routing\Helpers;
+
 class FruitsController extends Controller
 {
+	use Helpers;
     public function index(){
         $fruits = Fruit::all();
 
