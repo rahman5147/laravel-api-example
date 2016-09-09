@@ -29,4 +29,12 @@ class FruitsController extends Controller
 
         return $this->response->errorNotFound();
     }
+
+    public function store(Requests\StoreFruitRequest $request){
+        if (Fruit::Create($request->all())) {
+            return $this->response->created();
+        }
+
+        return $this->response->errorBadRequest();
+    }
 }
