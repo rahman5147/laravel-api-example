@@ -1,3 +1,4 @@
+# Example of Laravel API
 
 ref: https://dotdev.co/test-driven-api-development-using-laravel-dingo-and-jwt-with-documentation-ae4014260148#.herevqcfi
 
